@@ -34,7 +34,7 @@ function App() {
             return (
               <div>
               <li key={key}> {val} </li>
-            <button onClick={(val)=>{deleteTask(val)}}>X</button>
+            <button onClick={()=>{deleteTask(val)}}>X</button>
            </div> );
         })}
       </ul>

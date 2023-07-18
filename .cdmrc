@@ -1,3 +1,3 @@
 tabs: ["src/App.jsx"]
-live-reload-browser: false
+live-reload-browser: true
 terminals: ["yarn install && yarn dev"]
