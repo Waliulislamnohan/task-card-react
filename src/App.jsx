@@ -8,6 +8,13 @@ function App() {
   const addtask = () => {
     setTodolist([...todoList, currentTask]);
   };
+  const deleteTask = (taskToDelete) => {
+    setTodolist(
+      todoList.filter((task) => {
+        return task !== taskToDelete;
+      })
+    )
+  }
   return (
     <div className="App">
       <header className="App-header">
@@ -24,8 +31,10 @@ function App() {
           </div>
       <ul>
         {todoList.map((val,key)=>{
-            return <li key={key}> {val} </li>;
+            return (
+              <li key={key}> {val} </li>
             <button onClick={(val)=>{deleteTask(val)}}>X</button>
+            );
         })}
       </ul>
       </header>
