@@ -32,9 +32,10 @@ function App() {
       <ul>
         {todoList.map((val,key)=>{
             return (
+              <div>
               <li key={key}> {val} </li>
             <button onClick={(val)=>{deleteTask(val)}}>X</button>
-            );
+           </div> );
         })}
       </ul>
       </header>
