@@ -25,6 +25,7 @@ function App() {
       <ul>
         {todoList.map((val,key)=>{
             return <li key={key}> {val} </li>;
+            <button onClick={(val)=>{deleteTask(val)}}>X</button>
         })}
       </ul>
       </header>
