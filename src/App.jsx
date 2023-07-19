@@ -6,15 +6,21 @@ function App() {
   const [currentTask, setCurrentTask] = useState("");
 
   const addtask = () => {
-    setTodolist([...todoList, currentTask]);
+    setTodolist([...todoList, {task:currentTask, completed: false}]);
   };
   const deleteTask = (taskToDelete) => {
     setTodolist(
       todoList.filter((task) => {
-        return task !== taskToDelete;
+        return task.task !== taskToDelete;
       })
     )
   }
+  const completeTask = (taskTocomplete) => {
+    setTodolist(todoList.map((task)=>{
+      return task.task == taskTocomplete ? {task: taskTocomplete, completed: true} : {task: task.task, completed: task.completed ? true : false}
+    }))
+  }
+
   return (
     <div className="App">
       <header className="App-header">
@@ -32,9 +38,11 @@ function App() {
       <ul>
         {todoList.map((val,key)=>{
             return (
-              <div>
-              <li key={key}> {val} </li>
-            <button onClick={()=>{deleteTask(val)}}>X</button>
+              <div id="task">
+              <li key={key}> {val.task} </li>
+            <button onClick={()=>{deleteTask(val.task)}}>X</button>
+            <button onClick={() => {completeTask(val.task)}}>Completed</button>
+            {val.completed ? <h1>Task Completed</h1> : <h1>Task Not completed</h1>}
            </div> );
         })}
       </ul>
